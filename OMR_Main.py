@@ -151,7 +151,11 @@ while True:
     cv2.imshow("Final result", imgFinal)
     cv2.imshow("Stacked", imgStacked)
 
-    # will display the window infinitely until any keypress (it is suitable for image display)
+    # waitKey(0) will pause your screen because it will wait infinitely for keyPress on your keyboard and will not
+    # refresh the frame(cap.read()) using your WebCam. waitKey(1) will wait for keyPress for just 1 millisecond, and
+    # it will continue to refresh and read frame from your webcam using cap.read(). More clearly, Use debugger in
+    # your code.When using waitKey(0) in the while loop, the debugger never crosses this statement and does not
+    # refresh the frame and hence the frame output seems stable.Does not move.
     if cv2.waitKey(1) & 0xFF == ord('s'):
         cv2.imwrite("Final Result.jpg", imgFinal)
         cv2.waitKey(300)
